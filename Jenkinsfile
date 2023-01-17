@@ -23,7 +23,7 @@ pipeline {
         stage("Deploy on Test"){
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat9(credentialsId: 'ubuntuaskpass', path: '', url: 'http://13.235.50.240:8080')], contextPath: '/app', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'pass', path: '', url: 'http://13.235.50.240:8080')], contextPath: '/app', war: '**/*.war'
               
             }
             
