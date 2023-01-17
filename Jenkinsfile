@@ -23,7 +23,7 @@ pipeline {
         stage("Deploy on Test"){
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat10(edentialsId: 'ubuntuask', path: '', url: 'http://13.234.48.111:8080')], contextPath: '/app', war: '**/*.war'
+                deploy adapters: [tomcat10(credentialsId: 'ubuntuask', path: '', url: 'http://65.2.175.124:8080')], contextPath: '/app', war: '**/*.war'
               
             }
             
@@ -36,7 +36,7 @@ pipeline {
             
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat10(edentialsId: 'ubuntupass', path: '', url: 'http://15.206.168.167:8080')], contextPath: '/app', war: '**/*.war'
+                deploy adapters: [tomcat10(credentialsId: 'ubuntupass', path: '', url: 'http://13.235.50.240:8080')], contextPath: '/app', war: '**/*.war'
 
             }
         }
@@ -45,13 +45,13 @@ pipeline {
         always{
             echo "========always========"
         }
-        success{
-            echo "========pipeline executed successfully ========"
-             slackSend channel: 'youtubejenkins', message: 'Success'
-        }
-        failure{
-            echo "========pipeline execution failed========"
-             slackSend channel: 'youtubejenkins', message: 'Job Failed'
+//         success{
+//             echo "========pipeline executed successfully ========"
+//              slackSend channel: 'youtubejenkins', message: 'Success'
+//         }
+//         failure{
+//             echo "========pipeline execution failed========"
+//              slackSend channel: 'youtubejenkins', message: 'Job Failed'
         }
     }
 }
