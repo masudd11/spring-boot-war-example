@@ -26,7 +26,7 @@ pipeline {
 //               deploy adapters: [tomcat9(credentialsId: 'bus', path: '', url: 'http://13.235.50.240:8080')], contextPath: '/app', war: '**/*.war'
                 sshagent(['sshid']) {
                 // some block
-                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/fresh/target/hello-world-0.0.1-SNAPSHOT.war ubuntu@3.108.66.159:/opt/tomcat10/webapps/'
+                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/fresh/target/hello-world-0.0.1-SNAPSHOT.war ubuntu@3.108.66.159:/opt/tomcat10/webapps/app'
                 }
               
             }
